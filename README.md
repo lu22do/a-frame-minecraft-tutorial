@@ -1,6 +1,10 @@
 # Super simple Minecraft in VR for the HTC Vive
 
-This tutorial allows you to create a simple VR Minecraft application for the HTC Vive with A-frame.
+This 4-steps tutorial allows you to create a simple VR Minecraft application for the HTC Vive with A-frame.
+
+Refer to the index.html file in this project for the final result.
+
+To run it, serve the index.html page with a http server (e.g. [http-sever](https://www.npmjs.com/package/http-server)) and load it to a webvr-enabled browser.
 
 ## Step 1: Basic HTML page setup
 
@@ -15,7 +19,7 @@ Create your HTML doc and include the [a-frame](https://aframe.io) library.
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   </head>
   <body>
-
+     ...
   </body>
 </html>
 ```
