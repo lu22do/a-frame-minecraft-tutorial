@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Minecraft in VR with A-frame</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene id="myscene">
+      <a-plane height="100" width="100" rotation="-90 0 0" color="#243e2c"></a-plane>
+
+      <a-light type="directional" position="-0.5 3 1" intensity="0.8"></a-light>
+
+      <a-entity vive-controls="hand: left"></a-entity>
+      <a-entity vive-controls="hand: right"></a-entity>
+    </a-scene>
+
+    <script>
+      function align(pos) {
+        return Math.floor(pos * 10) / 10;
+      }
+
+      function addBlock(position) {
+        var block = document.createElement("a-box");
+        block.setAttribute('width', '0.1');
+        block.setAttribute('height', '0.1');
+        block.setAttribute('depth', '0.1');
+        block.setAttribute('color', '#808080');
+        block.setAttribute('position', align(position.x) + ' ' + align(position.y) + ' ' + align(position.z));
+        document.getElementById('myscene').appendChild(block);
+      }
+
+      function delBlock(position) {
+        document.querySelectorAll('a-block').forEach(function (elem) {
+          var blockPos = elem.getAttribute('position');
+          if (blockPos.x === align(position.x) &&
+              blockPos.y === align(position.y) &&
+              blockPos.z === align(position.z)) {
+            document.getElementById('myscene').removeChild(elem);
+          }
+        });
+      }
+
+      document.querySelectorAll('a-entity[vive-controls]').forEach(function (elem) {
+          elem.addEventListener('triggerdown', function(e) {
+            addBlock(e.srcElement.getAttribute('position'));
+          });
+
+          elem.addEventListener('gripdown', function(e) {
+            delBlock(e.srcElement.getAttribute('position'));
+          });
+      });
+    </script>
+  </body>
+</html>
