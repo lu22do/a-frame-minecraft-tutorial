@@ -33,17 +33,11 @@ Create your HTML doc and include the [a-frame](https://aframe.io) library.
 
 ## Step 2: Basic A-frame setup
 
-Create the A-frame scene by adding a `<a-scene>` tag (with the id `myscene`) as a child of the `<body>` tag.
+Create the A-frame scene by adding a `<a-scene>` tag (with the id `myscene`) as a child of the `<body>` tag:
 
 ```HTML
 <body>
   <a-scene id="myscene">
-    <a-plane height="100" width="100" rotation="-90 0 0" color="#243e2c"></a-plane>
-
-    <a-light type="directional" position="-0.5 3 1" intensity="0.8"></a-light>
-
-    <a-entity vive-controls="hand: left"></a-entity>
-    <a-entity vive-controls="hand: right"></a-entity>
   </a-scene>
 </body>
 ```
@@ -63,9 +57,23 @@ To the scene, we add:
   <a-entity vive-controls="hand: right"></a-entity>
   ```
 
+The result looks like this:
+```HTML
+<body>
+  <a-scene id="myscene">
+    <a-plane height="100" width="100" rotation="-90 0 0" color="#243e2c"></a-plane>
+
+    <a-light type="directional" position="-0.5 3 1" intensity="0.8"></a-light>
+
+    <a-entity vive-controls="hand: left"></a-entity>
+    <a-entity vive-controls="hand: right"></a-entity>
+  </a-scene>
+</body>
+```
+
 ## Step 3: Add a block
 
-To add a block, we add a `<script>` tag to the `<body>` and then a 'addBox()' method that we invoke when any of the controllers' trigger button is pressed.
+To let the user add a block dynamically, we add a `<script>` tag to the `<body>` and then a 'addBox()' method that we invoke when any of the controllers' trigger button is pressed.
 
 The position of a block is aligned to a virtual grid every 10th of unit with the `align()` method.
 
@@ -95,8 +103,7 @@ The position of a block is aligned to a virtual grid every 10th of unit with the
 
 ## Step 4: Delete a block
 
-To remove a block that was added earlier, we add a 'delBox()' method that we invoke when any of the controllers' grip button is pressed.
-
+Now, to remove a block that was added earlier, we add a 'delBox()' method that we invoke when any of the controllers' grip button is pressed. In that method, we go through all the `<a-box>` elements of the DOM and delete the one whose position match with the controller's position.
 
 ```Javascript
 function delBox(position) {
