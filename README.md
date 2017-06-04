@@ -6,6 +6,9 @@ Refer to the index.html file in this project for the final result.
 
 To run it, serve the index.html page with a http server (e.g. [http-sever](https://www.npmjs.com/package/http-server)) and load it to a webvr-enabled browser.
 
+Here is a screenshot of what a user can create with this project:
+![](screenshot.png)
+
 ## Step 1: Basic HTML page setup
 
 Create your HTML doc and include the [a-frame](https://aframe.io) library.
