@@ -33,7 +33,7 @@ Create your HTML doc and include the [a-frame](https://aframe.io) library.
 
 ## Step 2: Basic A-frame setup
 
-Create the A-frame scene by adding a `<a-scene>` tag (with the id `myscene` to `<body>`.
+Create the A-frame scene by adding a `<a-scene>` tag (with the id `myscene`) as a child of the `<body>` tag.
 
 ```HTML
 <body>
@@ -49,15 +49,15 @@ Create the A-frame scene by adding a `<a-scene>` tag (with the id `myscene` to `
 ```
 
 To the scene, we add:
-* a large flat dark green plane to represent the earth
+* a large flat dark green plane to represent the earth:
   ```HTML
   <a-plane height="100" width="100" rotation="-90 0 0" color="#243e2c"></a-plane>
   ```
-* a directional light to create shadows
+* a directional light to create shadows:
   ```HTML
   <a-light type="directional" position="-0.5 3 1" intensity="0.8"></a-light>
   ```
-* finaly 2 objects for the HTC Vive controllers
+* finally, 2 elements to represent the HTC Vive controllers:
   ```HTML
   <a-entity vive-controls="hand: left"></a-entity>
   <a-entity vive-controls="hand: right"></a-entity>
@@ -65,7 +65,7 @@ To the scene, we add:
 
 ## Step 3: Add a block
 
-To add a block, we add a `<script>` tag to the `<body>` and then a 'addBox()' method that we invoke when any of the controllers' trigger is pressed.
+To add a block, we add a `<script>` tag to the `<body>` and then a 'addBox()' method that we invoke when any of the controllers' trigger button is pressed.
 
 The position of a block is aligned to a virtual grid every 10th of unit with the `align()` method.
 
@@ -95,7 +95,7 @@ The position of a block is aligned to a virtual grid every 10th of unit with the
 
 ## Step 4: Delete a block
 
-To remove a block that was added earlier, we add a 'delBox()' method that we invoke when any of the controllers' trigger is pressed.
+To remove a block that was added earlier, we add a 'delBox()' method that we invoke when any of the controllers' grip button is pressed.
 
 
 ```Javascript
