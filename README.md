@@ -4,7 +4,7 @@ This 4-steps tutorial allows you to create a simple VR Minecraft application for
 
 Refer to the index.html file in this project for the final result.
 
-To run it, serve the index.html page with a http server (e.g. [http-sever](https://www.npmjs.com/package/http-server)) and load it to a webvr-enabled browser.
+To run it, serve the index.html page with a http server (e.g. [http-sever](https://www.npmjs.com/package/http-server)), load it to a webvr-enabled browser and interact with your HTC Vive controllers.
 
 Here is a screenshot of what a user can create with this project:
 ![](screenshot.png)
